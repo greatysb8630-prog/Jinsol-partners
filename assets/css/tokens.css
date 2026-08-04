@@ -41,6 +41,7 @@
   --fs-h3:    clamp(17px, 2.2vw, 20px);
   --fs-body:  clamp(15px, 1.7vw, 17px);
   --fs-small: 14px;
+  --fs-label: clamp(14px, 1.4vw, 16px);
   --fs-micro: 12px;
 
   --lh-tight: 1.28;
