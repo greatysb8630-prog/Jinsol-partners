@@ -26,7 +26,6 @@
   border:1px solid var(--line-firm);
   border-radius:var(--radius);
   background:var(--white);
-  box-shadow:0 24px 64px var(--line-firm);
 }
 .home-screen-stage__item figcaption{
   padding:var(--s2) var(--s3);
