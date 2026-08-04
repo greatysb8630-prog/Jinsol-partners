@@ -62,7 +62,7 @@
 /* ── 섹션 헤더 ── */
 .sec-head{ margin-bottom:var(--s6); }
 .sec-head__eyebrow{
-  font-family:var(--font-mono); font-size:var(--fs-micro);
+  font-family:var(--font-mono); font-size:var(--fs-label);
   letter-spacing:.16em; color:var(--steel); text-transform:uppercase;
 }
 .sec-head h2{ margin-top:var(--s2); }
@@ -79,7 +79,7 @@
 .card--fill{ background:var(--ink); color:var(--on-ink); border-color:var(--ink); }
 .card--fill h3,.card--fill strong{ color:var(--white); }
 .card--fill p{ color:var(--on-ink); }
-.card__no{ font-family:var(--font-mono); font-size:var(--fs-micro); letter-spacing:.12em; color:var(--steel); }
+.card__no{ font-family:var(--font-mono); font-size:var(--fs-label); letter-spacing:.12em; color:var(--steel); }
 .card--fill .card__no{ color:var(--signal); }
 .card__link{ margin-top:auto; align-self:flex-start; display:inline-flex; align-items:center;
   min-height:var(--tap); font-size:var(--fs-small); font-weight:700; color:var(--ink);

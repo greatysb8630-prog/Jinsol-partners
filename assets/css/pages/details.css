@@ -58,7 +58,7 @@
   padding-bottom:var(--s1);
   color:var(--ink);
   border-bottom:2px solid var(--signal);
-  font-size:var(--fs-micro);
+  font-size:var(--fs-label);
 }
 .course-summary h3{ margin-top:var(--s4); }
 .course-summary p{ margin-top:var(--s3); font-size:var(--fs-small); }
@@ -85,7 +85,7 @@
   padding-bottom:var(--s1);
   color:var(--ink);
   border-bottom:2px solid var(--signal);
-  font-size:var(--fs-micro);
+  font-size:var(--fs-label);
   letter-spacing:.16em;
 }
 .case-detail h3{ margin-top:var(--s3); font-size:clamp(26px,3.2vw,38px); }

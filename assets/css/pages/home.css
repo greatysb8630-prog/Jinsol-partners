@@ -78,7 +78,7 @@
 .home-work .sec-head p,.home-work .home-case p{ color:var(--on-ink); }
 .home-case-list{ margin-top:var(--s8); display:grid; gap:var(--s9); }
 .home-case{ display:grid; align-items:center; gap:var(--s6); }
-.home-case__number{ color:var(--signal); font-size:var(--fs-micro); letter-spacing:.16em; }
+.home-case__number{ color:var(--signal); font-size:var(--fs-label); letter-spacing:.16em; }
 .home-case h3{ margin-top:var(--s3); font-size:clamp(28px,3.5vw,42px); }
 .home-case p{ margin-top:var(--s4); }
 .home-case__media{ overflow:hidden; border:1px solid var(--line-firm); border-radius:var(--radius); background:var(--paper); }
