@@ -48,6 +48,22 @@
       '</dl></article>';
   }
 
+  function summaryList(list) {
+    if (!Array.isArray(list)) return txt(list);
+    return txt(list[0]) + (list.length > 1 ? ' 외 ' + (list.length - 1) + '개' : '');
+  }
+
+  function serviceSummary(s) {
+    return '<article class="summary-card" data-service="' + esc(s.id) + '">' +
+      '<h3>' + txt(s.name) + '</h3>' +
+      '<p>' + txt(s.fitFor) + '</p>' +
+      '<dl class="summary-meta">' +
+      '<dt>기간</dt><dd>' + txt(s.duration) + '</dd>' +
+      '<dt>결과물</dt><dd>' + summaryList(s.deliverables) + '</dd>' +
+      '<dt>비용</dt><dd class="price">' + txt(s.price) + '</dd>' +
+      '</dl></article>';
+  }
+
   /* ── 사례 : 표준 6항목 (개발지시서 §4-7) ── */
   function tool(t) {
     return '<article class="card" data-case="' + esc(t.id) + '">' +
@@ -62,6 +78,34 @@
       '<dt>기대 효과</dt><dd>' + txt(t.expectedEffect) + '</dd>' +
       '<dt>화면</dt><dd>' + txt(t.screenNote) + '</dd>' +
       '</dl></article>';
+  }
+
+  function toolDetail(t, index) {
+    return '<article class="case-detail" data-case="' + esc(t.id) + '">' +
+      '<div class="case-detail__copy">' +
+      '<span class="case-detail__number mono">0' + (index + 1) + '</span>' +
+      '<h3>' + txt(t.title) + '</h3>' +
+      '<dl class="summary-meta">' +
+      '<dt>문제</dt><dd>' + txt(t.problem) + '</dd>' +
+      '<dt>개선 도구</dt><dd>' + txt(t.tool) + '</dd>' +
+      '<dt>검증 방식</dt><dd>' + txt(t.verification) + '</dd>' +
+      '<dt>기대 효과</dt><dd>' + txt(t.expectedEffect) + '</dd>' +
+      '</dl></div>' +
+      '<figure class="case-detail__media"><img src="' + esc(t.screenshot) +
+      '" width="' + esc(t.screenshotWidth) + '" height="' + esc(t.screenshotHeight) +
+      '" alt="' + esc(t.screenshotAlt) + '" loading="lazy" decoding="async">' +
+      '<figcaption>' + txt(t.screenNote) + '</figcaption></figure>' +
+      '</article>';
+  }
+
+  function toolShowcase(t, index) {
+    return '<article class="home-case" data-case="' + esc(t.id) + '">' +
+      '<div class="home-case__copy"><span class="home-case__number mono">0' + (index + 1) + '</span>' +
+      '<h3>' + txt(t.title) + '</h3><p>' + txt(t.expectedEffect) + '</p></div>' +
+      '<figure class="home-case__media"><img src="' + esc(t.screenshot) +
+      '" width="' + esc(t.screenshotWidth) + '" height="' + esc(t.screenshotHeight) +
+      '" alt="' + esc(t.screenshotAlt) + '" loading="lazy" decoding="async"></figure>' +
+      '</article>';
   }
 
   /* ── 교육과정 : 표준 7항목 (개발지시서 §4-8) ── */
@@ -80,11 +124,29 @@
       '</dl></article>';
   }
 
+  function courseSummary(c) {
+    return '<article class="course-summary" data-course="' + esc(c.id) + '">' +
+      '<span class="course-summary__hours mono">' + txt(c.hours) + '시간</span>' +
+      '<h3>' + txt(c.name) + '</h3>' +
+      '<p><strong>대상</strong> ' + txt(c.target) + '</p>' +
+      '<p><strong>결과물</strong> ' + txt(c.output) + '</p>' +
+      '</article>';
+  }
+
   function partnerCourse(c) {
     return '<tr><th scope="row">' + txt(c.name) + '</th>' +
       '<td class="mono">' + txt(c.totalHours) + '시간</td>' +
       '<td class="mono">' + txt(c.myHours) + '시간</td>' +
       '<td>' + txt(c.cycle) + '</td></tr>';
+  }
+
+  function partnerSummary(p) {
+    return '<article class="partner-summary"><div><p class="sec-head__eyebrow">Public Program</p>' +
+      '<h3>' + txt(p.programName) + '</h3><p>' + txt(p.org) + ' · ' + txt(p.approval) + '</p></div>' +
+      '<div class="partner-summary__rows">' + p.courses.map(function (c) {
+        return '<p><strong>' + txt(c.name) + '</strong><span>' + txt(c.totalHours) +
+          '시간 중 변용섭 담당 ' + txt(c.myHours) + '시간 · ' + txt(c.cycle) + '</span></p>';
+      }).join('') + '</div><p>' + txt(p.place) + ' · 문의 ' + txt(p.orgContact) + '</p></article>';
   }
 
   function post(p) {
@@ -97,16 +159,33 @@
     services: function (el, d) {
       var track = el.getAttribute('data-track');
       var rows = d.items.filter(function (s) { return !track || s.track === track; });
-      el.innerHTML = '<div class="grid">' + rows.map(service).join('') + '</div>' +
+      var renderer = el.getAttribute('data-layout') === 'summary' ? serviceSummary : service;
+      el.innerHTML = '<div class="' + (renderer === serviceSummary ? 'summary-grid' : 'grid') + '">' +
+        rows.map(renderer).join('') + '</div>' +
         '<p class="price-note">' + esc(d.priceNote) + '</p>';
     },
     tools: function (el, d) {
+      var layout = el.getAttribute('data-layout');
+      if (layout === 'showcase') {
+        el.innerHTML = '<div class="home-case-list">' + d.items.map(toolShowcase).join('') + '</div>';
+        return;
+      }
+      if (layout === 'detail') {
+        el.innerHTML = '<div class="case-detail-list">' + d.items.map(toolDetail).join('') + '</div>';
+        return;
+      }
       el.innerHTML = '<div class="grid">' + d.items.map(tool).join('') + '</div>';
     },
     courses: function (el, d) {
-      el.innerHTML = '<div class="grid">' + d.own.map(course).join('') + '</div>';
+      var renderer = el.getAttribute('data-layout') === 'summary' ? courseSummary : course;
+      el.innerHTML = '<div class="' + (renderer === courseSummary ? 'course-summary-grid' : 'grid') + '">' +
+        d.own.map(renderer).join('') + '</div>';
     },
     partner: function (el, d) {
+      if (el.getAttribute('data-layout') === 'summary') {
+        el.innerHTML = partnerSummary(d.partner);
+        return;
+      }
       var p = d.partner;
       el.innerHTML =
         '<table><caption class="sr">해썹경영교육원 정규 과정과 담당 시간</caption><thead><tr>' +
