@@ -7,7 +7,7 @@
 
   function print() { window.print(); }
 
-  ['print-btn', 'print-btn-2'].forEach(function (id) {
+  ['print-btn'].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) el.addEventListener('click', print);
   });

@@ -24,13 +24,6 @@
   .adv{ display:grid; grid-template-columns:1fr 1fr; gap:0 var(--s6); }
 }
 
-.profile__quote{
-  margin-top:var(--s7); padding-top:var(--s5);
-  border-top:3px solid var(--signal);
-  font-size:var(--fs-h3); font-weight:700; color:var(--ink);
-}
-.profile__quote span{ display:block; margin-top:var(--s2); font-size:var(--fs-small); font-weight:400; color:var(--steel); }
-
 @page{ size:A4 portrait; margin:14mm 12mm; }
 @media print{
   .profile__head{ grid-template-columns:190px 1fr; padding-block:0; }
