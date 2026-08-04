@@ -17,8 +17,8 @@
 
 .home-screen-stage{
   position:relative;
-  min-height:clamp(430px,47vw,590px);
-  margin-top:clamp(var(--s7),7vw,var(--s9));
+  min-height:clamp(360px,39vw,470px);
+  margin-top:clamp(var(--s6),5vw,var(--s8));
 }
 .home-screen-stage__item{
   position:absolute;
@@ -121,7 +121,7 @@
 }
 
 @media (max-width:767px){
-  .home-screen-stage{ min-height:440px; }
+  .home-screen-stage{ min-height:400px; }
   .home-screen-stage__item--quote{ width:88%; }
   .home-screen-stage__item--inventory,.home-screen-stage__item--consulting{ width:58%; }
   .home-consultant__photo{ margin-inline:auto; }
