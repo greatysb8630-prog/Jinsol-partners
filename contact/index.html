@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>상담·문의 | 진솔파트너스</title>
+<meta name="description" content="중소기업 상담, 소상공인 상담, 교육·강의 문의를 각각 접수합니다. 첫 상담은 무료이며 영업일 기준 1일 이내에 답변드립니다.">
+<link rel="canonical" href="https://jinsolpartners.com/contact/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="상담·문의 | 진솔파트너스">
+<meta property="og:description" content="무엇부터 자동화해야 할지 모르셔도 괜찮습니다. 부담 없이 문의해 주십시오.">
+<meta property="og:url" content="https://jinsolpartners.com/contact/">
+<meta property="og:image" content="https://jinsolpartners.com/assets/images/og-default.png">
+<meta property="og:site_name" content="진솔파트너스 TrueNorth Solution">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-header__brand" href="/">
+      <svg viewBox="0 0 64 64" aria-hidden="true" fill="currentColor"><path d="M32 2 L38.36 25.64 L62 32 L38.36 38.36 L32 62 L25.64 38.36 L2 32 L25.64 25.64 Z"/></svg>
+      <span class="site-header__name">진솔파트너스</span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <ul>
+        <li><a href="/consulting/">중소기업 컨설팅</a></li>
+        <li><a href="/small-business/">소상공인 업무개선</a></li>
+        <li><a href="/education/">교육·강사</a></li>
+        <li><a href="/tools/">도구와 사례</a></li>
+        <li><a href="/contact/" aria-current="page">상담·문의</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-drawer">
+      <span class="sr">메뉴 열기</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <div class="nav-drawer" id="nav-drawer">
+    <a href="/consulting/">중소기업 컨설팅</a>
+    <a href="/small-business/">소상공인 업무개선</a>
+    <a href="/education/">교육·강사</a>
+    <a href="/tools/">도구와 사례</a>
+    <a href="/contact/">상담·문의</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section">
+    <div class="wrap">
+      <p class="sec-head__eyebrow">Contact</p>
+      <h1 style="margin-top:var(--s4)">부담 없이 <span class="hl">문의해 주십시오</span></h1>
+      <p class="lead" style="margin-top:var(--s5)">첫 상담은 무료입니다. 영업일 기준 1일 이내에 답변드립니다. 문의 유형에 따라 여쭙는 내용이 달라 아래 세 가지로 나누어 두었습니다.</p>
+
+      <h2 style="margin-top:var(--s7)">연락 방법</h2>
+      <div class="grid" style="margin-top:var(--s5)">
+        <article class="card">
+          <h3>전화</h3>
+          <p><a class="btn--text" href="tel:01026658630">010-2665-8630</a></p>
+          <p>평일 09:00~18:00 (점심 12:00~13:00)</p>
+        </article>
+        <article class="card">
+          <h3>이메일</h3>
+          <p><a class="btn--text" href="mailto:greatysb@naver.com">greatysb@naver.com</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 중소기업 상담 -->
+  <section class="section section--paper" id="consulting">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-head__eyebrow">Form 01</p>
+        <h2>중소기업 상담 신청</h2>
+        <p>견적·재고·생산·품질 업무의 자동화를 검토하시는 기업용입니다.</p>
+      </div>
+      <form class="form" data-form="consulting" novalidate>
+        <div class="field"><label for="c-company">회사명 <span class="req">*</span></label><input id="c-company" name="company" required autocomplete="organization"></div>
+        <div class="field"><label for="c-industry">업종 <span class="req">*</span></label><input id="c-industry" name="industry" required></div>
+        <div class="field"><label for="c-size">직원 수</label><input id="c-size" name="headcount" inputmode="numeric"></div>
+        <div class="field"><label for="c-name">담당자명 <span class="req">*</span></label><input id="c-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="c-phone">연락처 <span class="req">*</span></label><input id="c-phone" name="phone" type="tel" required autocomplete="tel"><span class="field__hint" id="c-phone-hint">숫자만 입력하셔도 됩니다.</span></div>
+        <div class="field"><label for="c-issue">고민하시는 업무 <span class="req">*</span></label><textarea id="c-issue" name="issue" required></textarea></div>
+        <div class="field"><label for="c-system">사용 중인 시스템</label><input id="c-system" name="system" placeholder="ERP, MES, 엑셀 등"></div>
+        <div class="field"><label for="c-prefer">상담 희망 방식</label>
+          <select id="c-prefer" name="prefer"><option value="phone">전화</option><option value="video">화상</option><option value="visit">방문</option><option value="email">이메일</option></select>
+          <span class="field__hint">전화가 부담스러우시면 이메일을 선택하셔도 됩니다.</span>
+        </div>
+        <div class="field field--check"><input type="checkbox" id="c-agree" name="agree" required><label for="c-agree">개인정보 수집·이용에 동의합니다. 수집 항목과 보유 기간은 <a class="btn--text" href="/privacy/">개인정보처리방침</a>에서 확인하실 수 있습니다. <span class="req">*</span></label></div>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn--primary" type="submit">상담 신청하기</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 소상공인 상담 -->
+  <section class="section" id="small-business">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-head__eyebrow">Form 02</p>
+        <h2>소상공인 상담 신청</h2>
+        <p>매장을 운영하시면서 매일 반복하는 일을 줄이고 싶으신 경우입니다.</p>
+      </div>
+      <form class="form" data-form="small-business" novalidate>
+        <div class="field"><label for="s-store">매장명 <span class="req">*</span></label><input id="s-store" name="store" required></div>
+        <div class="field"><label for="s-industry">업종 <span class="req">*</span></label><input id="s-industry" name="industry" required placeholder="카페, 음식점, 소매 등"></div>
+        <div class="field"><label for="s-task">가장 줄이고 싶은 일 <span class="req">*</span></label><textarea id="s-task" name="task" required placeholder="예) 매일 매출 정산, 리뷰 답변 작성"></textarea></div>
+        <div class="field"><label for="s-name">성함 <span class="req">*</span></label><input id="s-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="s-phone">연락처 <span class="req">*</span></label><input id="s-phone" name="phone" type="tel" required autocomplete="tel"></div>
+        <div class="field"><label for="s-prefer">연락 방법</label><select id="s-prefer" name="prefer"><option value="phone">전화</option><option value="text">문자</option></select></div>
+        <div class="field field--check"><input type="checkbox" id="s-agree" name="agree" required><label for="s-agree">개인정보 수집·이용에 동의합니다. 자세한 내용은 <a class="btn--text" href="/privacy/">개인정보처리방침</a>을 확인해 주십시오. <span class="req">*</span></label></div>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn--primary" type="submit">상담 신청하기</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- 교육·강의 문의 -->
+  <section class="section section--paper" id="education">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-head__eyebrow">Form 03</p>
+        <h2>교육·강의 문의</h2>
+        <p>기관·기업 출강 문의입니다. 주제·시간·대상만 알려 주시면 과정 구성안을 보내 드립니다.</p>
+      </div>
+      <form class="form" data-form="education" novalidate>
+        <div class="field"><label for="e-org">기관·기업명 <span class="req">*</span></label><input id="e-org" name="org" required autocomplete="organization"></div>
+        <div class="field"><label for="e-name">담당자명 <span class="req">*</span></label><input id="e-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="e-phone">연락처 <span class="req">*</span></label><input id="e-phone" name="phone" type="tel" required autocomplete="tel"></div>
+        <div class="field"><label for="e-email">이메일 <span class="req">*</span></label><input id="e-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="e-target">교육 대상 <span class="req">*</span></label><input id="e-target" name="target" required placeholder="생산·품질 실무자, 경영지원 등"></div>
+        <div class="field"><label for="e-topic">희망 주제 <span class="req">*</span></label><textarea id="e-topic" name="topic" required></textarea></div>
+        <div class="field"><label for="e-hours">교육시간 · 예상 인원</label><input id="e-hours" name="hours" placeholder="7시간 / 20명"></div>
+        <div class="field"><label for="e-when">희망 시기 · 장소</label><input id="e-when" name="when" placeholder="2026년 10월 / 인천"></div>
+        <div class="field field--check"><input type="checkbox" id="e-agree" name="agree" required><label for="e-agree">개인정보 수집·이용에 동의합니다. 자세한 내용은 <a class="btn--text" href="/privacy/">개인정보처리방침</a>을 확인해 주십시오. <span class="req">*</span></label></div>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn--primary" type="submit">강의 문의하기</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__cols">
+      <div class="stack">
+        <strong>진솔파트너스</strong>
+        <p>중소기업·소상공인 업무자동화 길잡이. 첫 번째 도구는 직접 만들어 드리고, 이후에는 직원이 스스로 만들도록 돕습니다.</p>
+        <p>대표 컨설턴트 변용섭 · 경영지도사(생산관리)<br>010-2665-8630 · greatysb@naver.com<br>평일 09:00~18:00 (점심 12:00~13:00)</p>
+      </div>
+      <div>
+        <h3>서비스</h3>
+        <ul>
+          <li><a href="/consulting/">중소기업 컨설팅</a></li>
+          <li><a href="/small-business/">소상공인 업무개선</a></li>
+          <li><a href="/education/">교육·강사</a></li>
+          <li><a href="/tools/">도구와 사례</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>정보</h3>
+        <ul>
+          <li><a href="/contact/">상담·문의</a></li>
+          <li><a href="/privacy/">개인정보처리방침</a></li>
+          <li><a href="https://truenorth-solution.tistory.com/" target="_blank" rel="noopener">인사이트 블로그</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="site-footer__bottom">&copy; 2026 진솔파트너스 · 대표 컨설턴트 변용섭 · 010-2665-8630 · greatysb@naver.com</p>
+  </div>
+</footer>
+
+<div class="consult-bar no-print">
+  <a href="tel:01026658630"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 013 5a1 1 0 011-1z"/></svg>전화 상담</a>
+  <a href="#consulting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 01-8 8H7l-4 3V12a8 8 0 018-8h2a8 8 0 018 8z"/></svg>문의 폼으로</a>
+</div>
+
+<script src="/assets/js/nav.js" defer></script>
+<script src="/assets/js/forms.js" defer></script>
+</body>
+</html>

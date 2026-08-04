@@ -1,0 +1,63 @@
+/* ============================================================
+   tokens.css — 디자인 토큰 (WU-00)
+   기획안 11-2 「계측」 팔레트 / 11-3 활자
+   ------------------------------------------------------------
+   [중요] 이 파일이 리터럴 색상값을 쓸 수 있는 유일한 곳입니다.
+      다른 CSS/HTML에서는 반드시 var(--*) 를 씁니다. (하네스 D-01)
+   ============================================================ */
+
+:root{
+  /* ── 색 ── 기획안 11-2 */
+  --ink:    #16232E;   /* 제목·헤더·버튼 */
+  --steel:  #5E7183;   /* 본문·보조 문구 */
+  --signal: #E5A00D;   /* 강조 — §대비 주의 참조 */
+  --paper:  #F1F3F4;   /* 섹션 교차 배경 */
+  --white:  #FFFFFF;   /* 기본 배경 */
+
+  /* 파생색 — 새 hex를 만들지 않고 위 5색에서 뽑습니다 */
+  --line:      color-mix(in srgb, var(--ink) 14%, transparent);
+  --line-firm: color-mix(in srgb, var(--ink) 28%, transparent);
+  --ink-soft:  color-mix(in srgb, var(--ink) 70%, var(--white));
+  --on-ink:    color-mix(in srgb, var(--white) 88%, var(--ink));
+  --mark:      color-mix(in srgb, var(--signal) 26%, var(--white));
+
+  /* ── 대비 실측 (개발지시서 §4-1) ──────────────────────────
+     신호 노랑 on 흰색 ......... 2.24:1  NG  텍스트 색 사용 금지
+     신호 노랑 on 잉크 ......... 7.13:1  OK
+     스틸 on 흰색 .............. 5.04:1  OK
+     스틸 on 페이퍼 ............ 4.53:1  OK  (여유 없음 — 본문만)
+     잉크 on 흰색 .............. 16.0:1  OK
+     흰 배경에서의 강조는 텍스트 색이 아니라 밑줄 바·마커로 합니다.
+     ------------------------------------------------------- */
+
+  /* ── 활자 ── 기획안 11-3 : 로컬 폰트만 (외부 CDN 금지) */
+  --font-kr: 'Pretendard Variable', Pretendard, -apple-system,
+             'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Consolas,
+               'D2Coding', 'Nanum Gothic Coding', monospace;
+
+  --fs-hero:  clamp(26px, 6.5vw, 52px);
+  --fs-h2:    clamp(22px, 3.4vw, 32px);
+  --fs-h3:    clamp(17px, 2.2vw, 20px);
+  --fs-body:  clamp(15px, 1.7vw, 17px);
+  --fs-small: 14px;
+  --fs-micro: 12px;
+
+  --lh-tight: 1.28;
+  --lh-body:  1.7;
+
+  /* ── 간격 ── 4px 배수 */
+  --s1: 4px;   --s2: 8px;   --s3: 12px;  --s4: 16px;
+  --s5: 24px;  --s6: 32px;  --s7: 48px;  --s8: 64px;  --s9: 96px;
+
+  /* ── 레이아웃 ── 기획안 12-1 */
+  --wrap: 1120px;
+  --gutter: 20px;
+  --radius: 4px;          /* 기획안 11-5 : 카드 구분은 1px 선, 과한 라운드 금지 */
+  --tap: 44px;            /* 최소 터치 대상 */
+  --bar-h: 60px;          /* 모바일 고정 상담 바 높이 */
+
+  /* ── 모션 ── 기획안 11-5 : 페이드·숫자 카운트 수준까지 */
+  --dur: 200ms;
+  --ease: ease-out;
+}

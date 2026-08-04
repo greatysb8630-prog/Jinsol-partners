@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "updatedAt": "2026-08-04",
+    "source": "https://truenorth-solution.tistory.com/ 실사 (2026-08-04)",
+    "note": "기획안 10장 — 글은 티스토리에만 씁니다. 본문을 이 사이트에 복제하지 않습니다. 제목·날짜·분류·링크만 둡니다. 2차에 RSS 자동 연동으로 교체합니다."
+  },
+  "blogUrl": "https://truenorth-solution.tistory.com/",
+  "categories": ["회사소개", "컨설팅사례", "정부지원사업"],
+  "items": [
+    {
+      "title": "AI 에이전트로 재고관리를 바꾼다",
+      "date": "2026-04-04",
+      "category": "컨설팅사례",
+      "url": "https://truenorth-solution.tistory.com/entry/AI-에이전트로-재고관리를-바꾼다"
+    },
+    {
+      "title": "기업 문제 해결 열쇠는 조직원 머릿속에 있다",
+      "date": "2025-07-02",
+      "category": "컨설팅사례",
+      "url": "https://truenorth-solution.tistory.com/entry/기업-애로-해결의-열쇠는-조직원-머릿속에-있다"
+    },
+    {
+      "title": "회사소개",
+      "date": "2025-07-01",
+      "category": "회사소개",
+      "url": "https://truenorth-solution.tistory.com/entry/회사소개-1"
+    },
+    {
+      "title": "중소기업 현장클리닉으로 생산성과 안전을 동시에 잡다",
+      "date": "2025-06-30",
+      "category": "컨설팅사례",
+      "url": "https://truenorth-solution.tistory.com/entry/중소기업-현장클리닉으로-생산성과-안전을-동시에-잡다"
+    }
+  ]
+}

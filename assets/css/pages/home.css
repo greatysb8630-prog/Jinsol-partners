@@ -1,0 +1,21 @@
+/* home.css — 메인 (WU-01) */
+
+.hero{ padding-block:var(--s8) var(--s7); }
+@media (min-width:1024px){ .hero{ padding-block:var(--s9) var(--s8); } }
+.hero h1{ margin-top:var(--s4); }
+.hero .lead{ margin-top:var(--s5); }
+.hero .btn-row{ margin-top:var(--s6); }
+.hero__sub{ margin-top:var(--s5); font-size:var(--fs-small); color:var(--steel); }
+
+/* 나침반 네 방위 — 방위 라벨과 제목을 함께 표기 (기획안 5장 섹션3) */
+.bearing{ display:grid; gap:var(--s5); grid-template-columns:repeat(2,1fr); }
+@media (min-width:1024px){ .bearing{ grid-template-columns:repeat(4,1fr); } }
+.bearing__item{ padding-top:var(--s4); border-top:2px solid var(--line-firm); }
+.bearing__item:first-child{ border-top-color:var(--signal); }
+.bearing__dir{
+  display:inline-block; font-size:var(--fs-micro); letter-spacing:.16em;
+  color:var(--steel); border:1px solid var(--line-firm); border-radius:var(--radius);
+  padding:1px 7px; margin-bottom:var(--s3);
+}
+.bearing__item h3{ font-size:var(--fs-h3); }
+.bearing__item p{ margin-top:var(--s2); font-size:var(--fs-small); }
