@@ -1,0 +1,183 @@
+/* ============================================================
+   components.css — 공용 컴포넌트 (WU-00)
+   개발지시서 §6-1 목록 외 컴포넌트를 여기에 추가하지 않습니다.
+   ============================================================ */
+
+/* ── 헤더 ── */
+.site-header{
+  position:sticky; top:0; z-index:20;
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+  transition:padding var(--dur) var(--ease);
+}
+.site-header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:var(--s4); }
+.site-header__brand{ display:flex; align-items:center; gap:var(--s2); padding-block:var(--s4); }
+.site-header__brand svg{ width:26px; height:26px; color:var(--ink); }
+.site-header__name{ font-weight:800; letter-spacing:-.03em; font-size:17px; }
+.site-header.is-compact .site-header__brand{ padding-block:var(--s3); }
+
+.nav{ display:none; }
+.nav ul{ display:flex; gap:var(--s5); }
+.nav a{ display:block; padding-block:var(--s4); font-size:var(--fs-small); font-weight:500; color:var(--steel); border-bottom:2px solid transparent; }
+.nav a:hover,.nav a[aria-current="page"]{ color:var(--ink); border-bottom-color:var(--signal); }
+@media (min-width:1024px){ .nav{ display:block; } }
+
+.nav-toggle{
+  display:flex; align-items:center; justify-content:center;
+  width:var(--tap); height:var(--tap);
+  background:none; border:1px solid var(--line-firm); border-radius:var(--radius); cursor:pointer;
+}
+.nav-toggle svg{ width:20px; height:20px; color:var(--ink); }
+@media (min-width:1024px){ .nav-toggle{ display:none; } }
+
+.nav-drawer{ display:none; border-top:1px solid var(--line); background:var(--white); }
+.nav-drawer.is-open{ display:block; }
+.nav-drawer a{ display:block; padding:var(--s4) var(--gutter); border-bottom:1px solid var(--line); font-weight:500; }
+@media (min-width:1024px){ .nav-drawer,.nav-drawer.is-open{ display:none; } }
+
+/* ── 버튼 ── */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:var(--s2);
+  min-height:var(--tap); padding:var(--s3) var(--s5);
+  border:1px solid transparent; border-radius:var(--radius);
+  font-size:var(--fs-small); font-weight:700; letter-spacing:-.02em;
+  cursor:pointer; text-align:center;
+  transition:background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.btn--primary{ background:var(--ink); color:var(--white); }
+.btn--primary:hover{ background:var(--ink-soft); }
+.btn--secondary{ background:var(--white); color:var(--ink); border-color:var(--line-firm); }
+.btn--secondary:hover{ background:var(--paper); }
+.btn--text{ padding-inline:0; color:var(--ink); border-bottom:2px solid var(--signal); border-radius:0; min-height:auto; }
+.btn[disabled]{ opacity:.55; cursor:not-allowed; }
+.btn-row{ display:flex; flex-wrap:wrap; gap:var(--s3); }
+@media (max-width:639px){ .btn-row .btn{ width:100%; } }
+
+/* ── 섹션 헤더 ── */
+.sec-head{ margin-bottom:var(--s6); }
+.sec-head__eyebrow{
+  font-family:var(--font-mono); font-size:var(--fs-micro);
+  letter-spacing:.16em; color:var(--steel); text-transform:uppercase;
+}
+.sec-head h2{ margin-top:var(--s2); }
+.sec-head p{ margin-top:var(--s3); max-width:62ch; }
+
+/* ── 카드 ── 기획안 11-5 : 구분은 1px 선, 그림자 없음 ── */
+.card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:var(--s5);
+  display:flex; flex-direction:column; gap:var(--s3);
+}
+.card--fill{ background:var(--ink); color:var(--on-ink); border-color:var(--ink); }
+.card--fill h3,.card--fill strong{ color:var(--white); }
+.card--fill p{ color:var(--on-ink); }
+.card__no{ font-family:var(--font-mono); font-size:var(--fs-micro); letter-spacing:.12em; color:var(--steel); }
+.card--fill .card__no{ color:var(--signal); }
+.card__link{ margin-top:auto; align-self:flex-start; display:inline-flex; align-items:center;
+  min-height:var(--tap); font-size:var(--fs-small); font-weight:700; color:var(--ink);
+  border-bottom:2px solid var(--signal); }
+
+/* ── 방위 눈금 스트립 ── 기획안 11-4 : 전체에서 2~3회만 ── */
+.compass-rule{ color:var(--line-firm); margin-block:var(--s7); }
+.compass-rule svg{ width:100%; height:14px; }
+
+/* ── 표준 항목 정의 리스트 ── 서비스 6 / 사례 6 / 교육 7 ── */
+.std{ display:grid; gap:var(--s3) var(--s4); grid-template-columns:1fr; }
+@media (min-width:640px){ .std{ grid-template-columns:auto 1fr; } }
+.std dt{
+  font-family:var(--font-mono); font-size:var(--fs-micro); letter-spacing:.04em;
+  color:var(--steel); padding-top:2px; white-space:nowrap;
+}
+.std dd{ font-size:var(--fs-small); color:var(--ink); }
+.std dd + dt{ border-top:1px solid var(--line); padding-top:var(--s3); }
+.std dt + dd{ border-top:0; }
+@media (min-width:640px){ .std dd + dt{ padding-top:var(--s3); } .std dt:nth-of-type(n+2) ~ dd{ padding-top:var(--s3); } }
+
+.price{ font-family:var(--font-mono); font-weight:700; color:var(--ink); }
+.price-note{ margin-top:var(--s4); font-size:var(--fs-micro); color:var(--steel); }
+
+/* ── KPI ── 숫자는 잉크, 강조는 밑줄 바 ── */
+.kpi{ display:grid; gap:var(--s4); grid-template-columns:repeat(2,1fr); border-block:1px solid var(--line); padding-block:var(--s5); }
+@media (min-width:768px){ .kpi{ grid-template-columns:repeat(4,1fr); } }
+.kpi__n{ font-family:var(--font-mono); font-size:clamp(20px,3.2vw,28px); font-weight:700; color:var(--ink); }
+.kpi__l{ margin-top:var(--s2); font-size:var(--fs-micro); color:var(--steel); line-height:1.4; }
+.kpi__src{ display:block; margin-top:var(--s1); font-size:var(--fs-micro); color:var(--steel); }
+
+/* ── 경력 타임라인 ── */
+.timeline{ display:grid; gap:var(--s5); }
+.job{ display:grid; gap:var(--s2) var(--s5); grid-template-columns:1fr; padding-bottom:var(--s5); border-bottom:1px solid var(--line); }
+@media (min-width:640px){ .job{ grid-template-columns:150px 1fr; } }
+.job__when{ font-family:var(--font-mono); font-size:var(--fs-micro); color:var(--steel); }
+.job__org{ font-weight:700; }
+.job__desc{ margin-top:var(--s2); font-size:var(--fs-small); }
+
+/* ── 태그 ── */
+.tags{ display:flex; flex-wrap:wrap; gap:var(--s2); }
+.tags li{ border:1px solid var(--line-firm); border-radius:var(--radius); padding:var(--s1) var(--s3); font-size:var(--fs-micro); color:var(--steel); }
+
+/* ── 대조표 ── */
+.contrast{ display:grid; gap:var(--s5); grid-template-columns:1fr; }
+@media (min-width:640px){ .contrast{ grid-template-columns:1fr 1fr; } }
+.contrast__col h3{ padding-bottom:var(--s3); border-bottom:2px solid var(--line-firm); }
+.contrast__col li{ padding:var(--s3) 0; border-bottom:1px solid var(--line); font-size:var(--fs-small); }
+.contrast__col--do h3{ border-bottom-color:var(--signal); }
+
+/* ── 폼 ── */
+.field{ display:flex; flex-direction:column; gap:var(--s2); margin-bottom:var(--s4); }
+.field label{ font-size:var(--fs-small); font-weight:700; }
+.field .req{ color:var(--ink); font-family:var(--font-mono); }
+.field input,.field select,.field textarea{
+  min-height:var(--tap); padding:var(--s3);
+  border:1px solid var(--line-firm); border-radius:var(--radius);
+  background:var(--white);
+}
+.field textarea{ min-height:120px; resize:vertical; }
+.field__hint{ font-size:var(--fs-micro); color:var(--steel); }
+.field__err{ font-size:var(--fs-micro); color:var(--ink); font-weight:700; }
+.field--check{ flex-direction:row; align-items:flex-start; gap:var(--s3); min-height:var(--tap); }
+.field--check input{ min-height:auto; width:24px; height:24px; margin-top:2px; flex:0 0 auto; }
+.field--check label{ font-weight:400; font-size:var(--fs-small); }
+.hp{ position:absolute; left:-9999px; }        /* honeypot */
+.form-status{ margin-top:var(--s4); padding:var(--s4); border:1px solid var(--line-firm); border-radius:var(--radius); font-size:var(--fs-small); }
+.form-status:empty{ display:none; }
+
+/* ── 모바일 고정 상담 바 ── 기획안 12-2 ── */
+.consult-bar{
+  position:fixed; left:0; right:0; bottom:0; z-index:30;
+  display:grid; grid-template-columns:1fr 1fr;
+  background:var(--ink);
+  padding-bottom:env(safe-area-inset-bottom, 0px);
+}
+.consult-bar a,.consult-bar span{
+  display:flex; align-items:center; justify-content:center; gap:var(--s2);
+  min-height:var(--bar-h); color:var(--white);
+  font-size:var(--fs-small); font-weight:700;
+}
+.consult-bar span{ color:var(--on-ink); }
+.consult-bar a + *{ border-left:1px solid var(--line-firm); }
+.consult-bar svg{ width:18px; height:18px; color:var(--signal); }
+@media (min-width:640px){ .consult-bar{ display:none; } }
+
+/* ── 푸터 ── */
+.site-footer{ background:var(--ink); color:var(--on-ink); padding-block:var(--s7); }
+.site-footer h2,.site-footer h3{ color:var(--white); }
+.site-footer a{ color:var(--on-ink); }
+.site-footer a:hover{ color:var(--signal); }
+.site-footer__cols{ display:grid; gap:var(--s6); grid-template-columns:1fr; }
+@media (min-width:768px){ .site-footer__cols{ grid-template-columns:2fr 1fr 1fr; } }
+.site-footer h3{ font-size:var(--fs-micro); font-family:var(--font-mono); letter-spacing:.14em; text-transform:uppercase; margin-bottom:var(--s3); }
+.site-footer li{ font-size:var(--fs-small); padding-block:var(--s1); }
+.site-footer__bottom{ margin-top:var(--s6); padding-top:var(--s4); border-top:1px solid var(--line-firm); font-size:var(--fs-micro); }
+
+/* ── 점 목록 ── 이모지 대신 선 표식 (기획안 11-5) ── */
+.dash li{ position:relative; padding-left:var(--s4); font-size:var(--fs-small); color:var(--steel); padding-block:var(--s1); }
+.dash li::before{ content:''; position:absolute; left:0; top:.75em; width:8px; height:2px; background:var(--line-firm); }
+
+/* ── 도구 화면 ── */
+.shot{
+  overflow:hidden; background:var(--paper);
+  border:1px solid var(--line-firm); border-radius:var(--radius);
+}
+.shot img{ display:block; width:100%; height:auto; }

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="진솔파트너스">
+  <!-- 축약형 : 16px에서 원·눈금이 사라지므로 북침만 남깁니다 (기획안 11-1) -->
+  <rect width="64" height="64" rx="10" fill="#16232E"/>
+  <path d="M32 9 L45 51 L32 43 L19 51 Z" fill="#FFFFFF"/>
+  <path d="M32 9 L38.5 30 L25.5 30 Z" fill="#E5A00D"/>
+</svg>

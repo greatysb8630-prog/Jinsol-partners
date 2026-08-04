@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="진솔파트너스 나침반 심볼 (다크 배경용)">
+  <path d="M47.56 16.44 L40 32 L47.56 47.56 L32 40 L16.44 47.56 L24 32 L16.44 16.44 L32 24 Z" fill="#FFFFFF" opacity="0.4"/>
+  <path d="M32 2 L38.36 25.64 L62 32 L38.36 38.36 L32 62 L25.64 38.36 L2 32 L25.64 25.64 Z" fill="#FFFFFF"/>
+  <path d="M32 2 L38.36 25.64 L25.64 25.64 Z" fill="#E5A00D"/>
+  <circle cx="32" cy="32" r="3.4" fill="#16232E"/>
+</svg>

@@ -1,0 +1,41 @@
+/* profile.css — 강사 프로필 (WU-02)
+   화면용과 인쇄용을 하나의 파일로 처리합니다.
+   참고 원본(reference/변용섭_강사프로필_1page.html)은 mm 고정이라 반응형이 불가능했습니다. */
+
+.profile{ padding-bottom:var(--s7); }
+
+.profile__head{ display:grid; gap:var(--s5); grid-template-columns:1fr; padding-block:var(--s6); align-items:center; }
+@media (min-width:768px){ .profile__head{ grid-template-columns:240px 1fr; gap:var(--s7); } }
+.profile__photo img{ border:1px solid var(--line); border-radius:var(--radius); background:var(--paper); }
+.profile__ident h1{ margin-top:var(--s2); }
+.profile__role{ margin-top:var(--s2); font-weight:700; color:var(--ink); }
+.profile__ident .lead{ margin-top:var(--s4); }
+
+.contact-list{ margin-top:var(--s4); display:flex; flex-wrap:wrap; gap:var(--s2) var(--s5); }
+.contact-list li{ font-size:var(--fs-small); }
+.contact-list .mono{ font-size:var(--fs-micro); color:var(--steel); margin-right:var(--s2); }
+
+.profile__sec{ margin-top:var(--s7); }
+.profile__sec h2{ padding-bottom:var(--s3); border-bottom:2px solid var(--line-firm); margin-bottom:var(--s5); }
+
+.cert li,.adv li{ padding:var(--s3) 0; border-bottom:1px solid var(--line); font-size:var(--fs-small); }
+.cert .mono,.adv .mono{ font-size:var(--fs-micro); color:var(--steel); }
+@media (min-width:768px){
+  .adv{ display:grid; grid-template-columns:1fr 1fr; gap:0 var(--s6); }
+}
+
+.profile__quote{
+  margin-top:var(--s7); padding-top:var(--s5);
+  border-top:3px solid var(--signal);
+  font-size:var(--fs-h3); font-weight:700; color:var(--ink);
+}
+.profile__quote span{ display:block; margin-top:var(--s2); font-size:var(--fs-small); font-weight:400; color:var(--steel); }
+
+@page{ size:A4 portrait; margin:14mm 12mm; }
+@media print{
+  .profile__head{ grid-template-columns:190px 1fr; padding-block:0; }
+  .profile__sec{ margin-top:var(--s5); break-inside:avoid; }
+  .card{ break-inside:avoid; }
+  .job{ break-inside:avoid; }
+  .adv{ grid-template-columns:1fr 1fr; }
+}

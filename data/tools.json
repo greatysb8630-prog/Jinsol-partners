@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "updatedAt": "2026-08-04",
+    "source": "기획안 v5 7-1 사례 표기 표준 (6항목)",
+    "note": "고객사 성과가 검증되기 전에는 확정형 표현을 쓰지 않고 '기대 효과'로 표기합니다. (기획안 7-2)"
+  },
+  "items": [
+    {
+      "id": "quotation",
+      "title": "견적 자동화",
+      "problem": "견적서 한 건을 만들 때마다 이전 파일을 찾아 열고 단가와 사양을 손으로 고쳐 넣습니다. 담당자마다 서식이 달라 확인에 시간이 더 듭니다.",
+      "asIs": "엑셀 파일 복사 후 수기 수정 · 단가표는 별도 시트 · 최종본은 메신저로 공유",
+      "tool": "품목과 수량을 고르면 단가표를 참조해 견적서를 만들고, 이전 견적 이력을 함께 보여 주는 웹도구",
+      "verification": "단가표는 담당자가 승인한 버전만 사용하고, 계산은 규칙식으로 처리해 AI가 값을 만들어 내지 않도록 분리했습니다. 생성된 견적은 저장 전 담당자 확인 단계를 반드시 거칩니다.",
+      "expectedEffect": "작성 시간 단축, 단가 적용 누락 방지, 견적 이력 조회 가능",
+      "screenNote": "더미 데이터를 넣은 실제 작동 화면",
+      "screenshot": "/assets/images/tools/quotation.webp",
+      "screenshotAlt": "견적 자동화 도구의 BOM 입력 및 검증 화면",
+      "screenshotWidth": 1505,
+      "screenshotHeight": 697
+    },
+    {
+      "id": "inventory",
+      "title": "재고관리 AI 에이전트",
+      "problem": "재고 수량은 알지만 언제 얼마나 발주할지는 담당자 경험에 의존합니다. 담당자가 자리를 비우면 판단이 멈춥니다.",
+      "asIs": "엑셀 재고표 · 발주 시점은 담당자 감각 · 부족을 알아차린 뒤 급하게 주문",
+      "tool": "입출고 이력에서 소진 속도를 계산해 발주 시점과 수량 후보를 제시하고, 근거가 된 이력을 함께 보여 주는 에이전트",
+      "verification": "제안은 항상 근거 데이터와 함께 표시하고, 발주 확정은 사람이 합니다. 이력이 부족한 품목은 제안하지 않고 '판단 불가'로 표시해 잘못된 확신을 만들지 않습니다.",
+      "expectedEffect": "결품과 과잉재고 감소, 담당자 부재 시에도 판단 기준 유지",
+      "screenNote": "더미 데이터를 넣은 실제 작동 화면",
+      "screenshot": "/assets/images/tools/inventory-agent.webp",
+      "screenshotAlt": "재고관리 시스템의 KPI, 재고현황, 발주권고 대시보드",
+      "screenshotWidth": 1043,
+      "screenshotHeight": 539
+    },
+    {
+      "id": "ax-maturity",
+      "title": "AX 성숙도 진단 도구",
+      "problem": "AI를 도입하고 싶어도 우리 회사가 어느 단계인지, 무엇부터 준비해야 하는지 판단할 기준이 없습니다.",
+      "asIs": "외부 자료를 참고해 자체 판단 · 기준이 매번 달라 비교가 불가능",
+      "tool": "업무 영역별 데이터 준비도와 표준화 수준을 문항으로 확인해 단계와 우선 과제를 정리해 주는 진단 도구",
+      "verification": "문항과 배점을 화면에 공개해 결과가 어떻게 나왔는지 확인할 수 있게 했습니다. 진단 결과는 등급이 아니라 '다음에 할 일'로 표시해 점수만 남는 것을 막았습니다.",
+      "expectedEffect": "준비 상태를 같은 기준으로 비교, 투자 순서 판단 근거 확보",
+      "screenNote": "더미 데이터를 넣은 실제 작동 화면",
+      "screenshot": "/assets/images/tools/ax-consulting-manager.webp",
+      "screenshotAlt": "AX 컨설팅 관리 앱의 고객사, 프로젝트, 진단 현황 대시보드",
+      "screenshotWidth": 1509,
+      "screenshotHeight": 697
+    }
+  ]
+}
