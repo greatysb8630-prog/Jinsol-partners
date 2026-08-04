@@ -4,16 +4,17 @@ import { existsSync, readFileSync } from 'node:fs';
 
 const read = path => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8');
 
-test('contact page uses direct email and phone actions only', () => {
+test('contact page uses compact direct email cards and a direct phone action', () => {
   const html = read('contact/index.html');
   assert.doesNotMatch(html, /<form\b|data-form=|forms\.js/);
 
   for (const id of ['consulting', 'small-business', 'education']) {
-    const section = html.match(new RegExp(`<section[^>]+id="${id}"[\\s\\S]*?<\\/section>`));
-    assert.ok(section, `missing ${id} section`);
-    assert.match(section[0], /mailto:greatysb@naver\.com/);
-    assert.match(section[0], /tel:01026658630/);
+    const card = html.match(new RegExp(`<article[^>]*\\bid="${id}"[^>]*>[\\s\\S]*?<\\/article>`));
+    assert.ok(card, `missing ${id} inquiry card`);
+    assert.match(card[0], /mailto:greatysb@naver\.com/);
   }
+
+  assert.match(html, /tel:01026658630/);
 
   assert.equal(existsSync(new URL('../assets/js/forms.js', import.meta.url)), false);
   assert.equal(existsSync(new URL('../functions/api', import.meta.url)), false);
