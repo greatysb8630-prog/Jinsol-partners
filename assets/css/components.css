@@ -12,9 +12,15 @@
 }
 .site-header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:var(--s4); }
 .site-header__brand{ display:flex; align-items:center; gap:var(--s2); padding-block:var(--s4); }
-.site-header__brand svg{ width:26px; height:26px; color:var(--ink); }
-.site-header__name{ font-weight:800; letter-spacing:-.03em; font-size:17px; }
+.site-header__compass{ display:block; width:42px; height:42px; object-fit:contain; }
+.site-header__name{ font-weight:800; letter-spacing:-.03em; font-size:20px; }
 .site-header.is-compact .site-header__brand{ padding-block:var(--s3); }
+.site-header.is-compact .site-header__compass{ width:36px; height:36px; }
+@media (max-width:639px){
+  .site-header__compass{ width:36px; height:36px; }
+  .site-header__name{ font-size:18px; }
+  .site-header.is-compact .site-header__compass{ width:32px; height:32px; }
+}
 
 .nav{ display:none; }
 .nav ul{ display:flex; gap:var(--s5); }
