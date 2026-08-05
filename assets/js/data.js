@@ -48,9 +48,11 @@
       '</dl></article>';
   }
 
-  function summaryList(list) {
+  /* 요약 카드의 결과물은 줄이지 않고 전부 보여줍니다. (2026-08-05 오너 지시) */
+  function itemList(list) {
     if (!Array.isArray(list)) return txt(list);
-    return txt(list[0]) + (list.length > 1 ? ' 외 ' + (list.length - 1) + '개' : '');
+    return '<ul class="meta-list">' +
+      list.map(function (x) { return '<li>' + txt(x) + '</li>'; }).join('') + '</ul>';
   }
 
   function serviceSummary(s) {
@@ -58,9 +60,9 @@
       '<h3>' + txt(s.name) + '</h3>' +
       '<p>' + txt(s.fitFor) + '</p>' +
       '<dl class="summary-meta">' +
+      '<dt>문제</dt><dd>' + txt(s.problem) + '</dd>' +
       '<dt>기간</dt><dd>' + txt(s.duration) + '</dd>' +
-      '<dt>결과물</dt><dd>' + summaryList(s.deliverables) + '</dd>' +
-      '<dt>비용</dt><dd class="price">' + txt(s.price) + '</dd>' +
+      '<dt>결과물</dt><dd>' + itemList(s.deliverables) + '</dd>' +
       '</dl></article>';
   }
 
@@ -128,9 +130,12 @@
     return '<article class="course-summary" data-course="' + esc(c.id) + '">' +
       '<span class="course-summary__hours mono">' + txt(c.hours) + '시간</span>' +
       '<h3>' + txt(c.name) + '</h3>' +
-      '<p><strong>대상</strong> ' + txt(c.target) + '</p>' +
-      '<p><strong>결과물</strong> ' + txt(c.output) + '</p>' +
-      '</article>';
+      '<dl class="summary-meta">' +
+      '<dt>대상</dt><dd>' + txt(c.target) + '</dd>' +
+      '<dt>학습내용</dt><dd>' + itemList(c.syllabus) + '</dd>' +
+      '<dt>결과물</dt><dd>' + txt(c.output) + '</dd>' +
+      '<dt>현업 적용</dt><dd>' + txt(c.application) + '</dd>' +
+      '</dl></article>';
   }
 
   function partnerCourse(c) {

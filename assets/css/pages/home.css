@@ -46,8 +46,24 @@
   border-top:1px solid var(--line);
   text-align:center;
 }
-.home-trust h2{ font-size:clamp(30px,3.6vw,46px); letter-spacing:-.04em; }
+.home-trust h2{ font-size:clamp(34px,4.4vw,54px); letter-spacing:-.04em; }
 .home-trust p{ margin-top:var(--s4); font-size:var(--fs-small); font-weight:700; }
+
+/* 진입 모션 — 기획안 11-5 : 페이드 수준까지. JS가 없으면 정적으로 그대로 보입니다. */
+.js .home-trust{
+  opacity:0;
+  transform:translateY(8px);
+  transition-property:opacity,transform;
+  transition-duration:240ms;
+  transition-timing-function:var(--ease);
+}
+.js .home-trust.is-in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .js .home-trust{ opacity:1; transform:none; }
+}
+@media print{
+  .js .home-trust{ opacity:1; transform:none; }
+}
 
 .home-services .sec-head{ max-width:820px; }
 .home-service-bento{ display:grid; gap:var(--s5); }
@@ -132,13 +148,25 @@
   .home-hero__copy{ text-align:left; }
   .home-hero h1{ font-size:clamp(34px,9.8vw,46px); }
   .home-hero .btn-row{ justify-content:flex-start; }
-  .home-screen-stage{ min-height:0; display:grid; gap:var(--s4); }
-  .home-screen-stage__item{ position:relative; inset:auto; width:100%; transform:none; }
-  .home-screen-stage__item--quote{ grid-row:1; }
-  .home-screen-stage__item--inventory{ grid-row:2; }
-  .home-screen-stage__item--consulting{ grid-row:3; }
+  /* 데스크톱의 겹친 인상을 모바일에서도 유지합니다.
+     좁은 폭에서 좌우로 겹치면 화면 내용이 읽히지 않으므로,
+     폭은 거의 그대로 두고 세로로 어긋나게 포갭니다.
+     위 카드가 아래 카드를 덮도록 z-index 를 내려가며 줍니다. */
+  .home-screen-stage{ min-height:0; display:grid; grid-template-columns:minmax(0,1fr); }
+  .home-screen-stage__item{ position:relative; inset:auto; }
+  .home-screen-stage__item--quote{
+    grid-row:1; z-index:3; width:96%; justify-self:start; transform:rotate(-1deg);
+  }
+  .home-screen-stage__item--inventory{
+    grid-row:2; z-index:2; width:88%; justify-self:end;
+    margin-top:calc(var(--s5) * -1); transform:rotate(1.6deg);
+  }
+  .home-screen-stage__item--consulting{
+    grid-row:3; z-index:1; width:88%; justify-self:start;
+    margin-top:calc(var(--s5) * -1); transform:rotate(-1.6deg);
+  }
   .home-trust{ margin-bottom:var(--s8); text-align:left; }
-  .home-trust h2{ font-size:30px; }
+  .home-trust h2{ font-size:34px; }
   .home-service-card{ min-height:0; }
   .home-contact__actions{ flex-direction:column; align-items:stretch; }
   .home-contact__actions .btn{ width:100%; }
