@@ -47,7 +47,10 @@
   text-align:center;
 }
 .home-trust h2{ font-size:clamp(34px,4.4vw,54px); letter-spacing:-.04em; }
-.home-trust p{ margin-top:var(--s4); font-size:var(--fs-small); font-weight:700; }
+/* 경력·자격 4칸 — 모노 서체는 숫자에만 씁니다 */
+.home-trust .kpi{ margin-top:var(--s6); text-align:left; }
+.home-trust .kpi__n{ font-family:var(--font-kr); letter-spacing:-.03em; }
+.home-trust .kpi__n.mono{ font-family:var(--font-mono); }
 
 /* 진입 모션 — 기획안 11-5 : 페이드 수준까지. JS가 없으면 정적으로 그대로 보입니다. */
 .js .home-trust{

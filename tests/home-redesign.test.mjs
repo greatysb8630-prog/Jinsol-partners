@@ -32,7 +32,7 @@ test('홈페이지가 승인된 5단계 흐름을 제공한다', async () => {
   assert.match(main, /반복 업무는 줄이고,[\s\S]*현장은 스스로 움직이게/);
   assert.equal((main.match(/class="home-screen-stage__image/g) ?? []).length, 3);
   assert.match(main, /현장을 아는 사람이 <span class="hl">AI를<\/span> 다룹니다/);
-  assert.match(main, /경영지도사\(생산관리\)[\s\S]*AX 강사 자격자[\s\S]*실제 업무도구 직접 구축/);
+  assert.match(main, /32년[\s\S]*제조·물류 현장[\s\S]*경영지도사[\s\S]*생산관리[\s\S]*AX 강사[\s\S]*자격 보유[\s\S]*직접 구축[\s\S]*실제 업무도구/);
   assert.match(main, /data-render="tools"[^>]*data-layout="showcase"/);
   assert.equal((main.match(/class="compass-rule"/g) ?? []).length, 2);
 });
