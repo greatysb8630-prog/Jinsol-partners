@@ -1,6 +1,7 @@
 /* nav.js — 헤더 내비게이션 (WU-00)
    - 모바일 햄버거 토글
    - 스크롤 시 헤더 축소 (기획안 12-1)
+   - 신뢰 문구 1회 페이드업 (기획안 11-5)
    외부 라이브러리 없음. */
 (function () {
   'use strict';
@@ -39,5 +40,20 @@
         ticking = false;
       });
     }, { passive: true });
+  }
+
+  /* 화면에 들어올 때 한 번만 페이드업. IntersectionObserver 가 없으면 아무것도 하지 않고
+     CSS 의 .js 게이트도 걸지 않으므로 문구는 처음부터 그대로 보입니다. */
+  var trust = document.querySelector('.home-trust');
+  if (trust && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('js');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('is-in');
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.25 });
+    io.observe(trust);
   }
 })();
