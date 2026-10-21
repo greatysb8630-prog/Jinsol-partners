@@ -17,7 +17,10 @@ test('contact page uses compact direct email cards and a direct phone action', (
   assert.match(html, /tel:01026658630/);
 
   assert.equal(existsSync(new URL('../assets/js/forms.js', import.meta.url)), false);
-  assert.equal(existsSync(new URL('../functions/api', import.meta.url)), false);
+  /* 문의 폼 백엔드는 두지 않는다. (공개 RSS를 중계하는 /api/blog 는 해당 없음) */
+  for (const name of ['contact', 'forms', 'inquiry']) {
+    assert.equal(existsSync(new URL(`../functions/api/${name}.js`, import.meta.url)), false, name);
+  }
 });
 
 test('public copy no longer promises a web form', () => {
