@@ -24,11 +24,11 @@ test('모든 페이지가 압축된 나침반 브랜드 이미지를 사용한�
   }
 });
 
-test('홈페이지가 승인된 5단계 흐름을 제공한다', async () => {
+test('홈페이지가 승인된 6단계 흐름을 제공한다', async () => {
   const html = await read('index.html');
   const main = html.match(/<main[\s\S]*?<\/main>/)?.[0] ?? '';
 
-  assert.equal((main.match(/<section\b/g) ?? []).length, 5);
+  assert.equal((main.match(/<section\b/g) ?? []).length, 6);
   assert.match(main, /반복 업무는 줄이고,[\s\S]*현장은 스스로 움직이게/);
   assert.equal((main.match(/class="home-screen-stage__image/g) ?? []).length, 3);
   assert.match(main, /현장을 아는 사람이 <span class="hl">AI를<\/span> 다룹니다/);
@@ -53,7 +53,8 @@ test('홈페이지가 중복 설명과 금지 요소를 제거한다', async () 
 
   assert.doesNotMatch(main, /class="bearing"/);
   assert.doesNotMatch(main, /상담에서 드리는 것|상담에서 하지 않는 것/);
-  assert.doesNotMatch(main, /<form\b|카카오|Resend|TrueNorth/i);
+  /* 링크 주소(블로그 도메인)는 제외하고 보이는 문구만 검사한다 */
+  assert.doesNotMatch(main.replace(/href="[^"]*"/g, ''), /<form\b|카카오|Resend|TrueNorth/i);
   assert.match(main, /greatysb@naver\.com/);
   assert.match(main, /010-2665-8630/);
 });
